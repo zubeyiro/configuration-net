@@ -6,30 +6,23 @@ namespace ConfigurationNET.ParserFactory
 {
     public class Parser : IParser
     {
-        private Source _source;
-        private FileProvider _fileProvider;
-        private EnvironmentVariableProvider _environmentVariableProvider;
-        private VolumeMountProvider _volumeMountProvider;
+        private IParser _parser;
 
         public Parser(Source source)
         {
-            _source = source;
-            _fileProvider = new FileProvider();
-            _environmentVariableProvider = new EnvironmentVariableProvider();
-            _volumeMountProvider = new VolumeMountProvider();
-        }
-
-        public object Parse(object obj, PropertyInfo property)
-        {
-            switch (_source)
+            switch (source)
             {
                 case Source.EnvironmentVariable:
-                    return _environmentVariableProvider.Parse(obj, property);
+                    _parser = new EnvironmentVariableProvider();
+                    break;
                 case Source.VolumeMount:
-                    return _volumeMountProvider.Parse(obj, property);
+                    _parser = new VolumeMountProvider();
+                    break;
             }
 
-            return _fileProvider.Parse(obj, property);
+            _parser = new FileProvider();
         }
+
+        public object Parse(object obj, PropertyInfo property) => _parser.Parse(obj, property);
     }
 }

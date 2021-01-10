@@ -5,10 +5,7 @@ namespace ConfigurationNET.ParserFactory.Providers
 {
     public class VolumeMountProvider : IParser
     {
-        public object Parse(object obj, PropertyInfo property)
-        {
-            return ReadMountVolume(property.GetValue(obj).ToString());
-        }
+        public object Parse(object obj, PropertyInfo property) => ReadMountVolume(property.GetValue(obj).ToString());
 
         private object ReadMountVolume(string mountPath)
         {

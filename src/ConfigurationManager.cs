@@ -24,8 +24,9 @@ namespace ConfigurationNET
             services.PostConfigure<T>(opt => opt = (T)SetValues((object)opt));
         }
 
-        private object SetValues(object obj, Source source = Source.File)
+        private object SetValues(object obj)
         {
+            Source source = Source.File;
             var properties = obj.GetType().GetProperties().ToList();
             var sourceProp = properties.Where(q => q.Name == "Source").FirstOrDefault();
 
