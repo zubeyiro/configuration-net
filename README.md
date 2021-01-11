@@ -72,12 +72,12 @@ Add Nuget package: https://www.nuget.org/packages/ConfigurationNET/
 Let's assume you are already using Options Pattern (https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration/options?view=aspnetcore-5.0) and you have configuration class like below;
 
 ```
-	public class AWSCredentials
-	{
-		public static readonly string SectionName = "AWSConfig";
-    public string Key { get; set; }
-    public string Secret { get; set; }
-	}
+public class AWSCredentials
+{
+  public static readonly string SectionName = "AWSCredentials";
+  public string Key { get; set; }
+  public string Secret { get; set; }
+}
 ```
 
 Instead of getting config like this;
