@@ -2,6 +2,14 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
+    <PackageId>ConfigurationNET</PackageId>
+    <Version>1.0.0</Version>
+    <Authors>Zubeyir OZTURK</Authors>
+    <Company>World</Company>
+    <Title>Configuration extension for different environment</Title>
+    <Description>This extension allows you to read configuration from different sources on different environments, you might need to read config from appsettings.json directly on your local while you need to read same data from environment variable or volume mount in QA/Prod.</Description>
+    <RepositoryUrl>https://github.com/zubeyiro/configuration-net/blob/main/README.md</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
   </PropertyGroup>
 
   <ItemGroup>
